@@ -38,8 +38,6 @@ public interface INode {
 	public abstract double[] getLineColor();
 	public abstract void setLineColor(double[] lineColor);
 	public abstract void render(GL gl);
-	public abstract String toJava();
-	public abstract String toJava(String tab);
 	public abstract String getGraph();
 	public abstract String getGraph(String tab);
 	public abstract List<INode> getChildren();

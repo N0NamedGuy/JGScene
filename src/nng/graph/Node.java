@@ -240,38 +240,6 @@ public class Node implements INode {
 	}
 	
 	/* (non-Javadoc)
-	 * @see graph.INode#toJava()
-	 */
-	@Override
-	public String toJava() {
-		return toJava("");
-	}
-	
-	/* (non-Javadoc)
-	 * @see graph.INode#toJava(java.lang.String)
-	 */
-	@Override
-	public String toJava(String tab) {
-		String ret = "";
-		
-		ret += tab + "gl.glRotated(" + rotation[0] + ", 1.0, 0.0, 0.0);";
-		ret += tab + "gl.glRotated(" + rotation[1] + ", 0.0, 1.0, 0.0);";
-		ret += tab + "gl.glRotated(" + rotation[2] + ", 0.0, 0.0, 1.0);";
-		
-		ret += tab + "gl.glScaled(" + scale[0] + ", " + scale[1] + ", " + scale[2] + ");\n";
-		ret += tab + "gl.glTranslated(" + translation[0] + ", " + translation[1] + ", " + translation[2] + ");\n";
-	    ret += tab + "gl.glColor3d(" + fillColor[0] + ", " + fillColor[1] + ", " + fillColor[2] + ");\n";
-		
-		for (INode n: children) {
-			ret += tab +  "gl.glPushMatrix();\n";
-			ret += tab +  n.toJava(tab + "  ") + ";\n";
-			ret += tab +  "gl.glPopMatrix();\n";
-		}
-		
-		return ret;
-	}
-	
-	/* (non-Javadoc)
 	 * @see graph.INode#getGraph()
 	 */
 	@Override
@@ -280,7 +248,7 @@ public class Node implements INode {
 	}
 	
 	public String getGraph(String tab) {
-		String ret = tab + "N [" + name + "] (" + translation[0] + ", " + translation[1] + ", " + translation[2] + ") "
+		String ret = tab + "Node [" + name + "] (" + translation[0] + ", " + translation[1] + ", " + translation[2] + ") "
 			+ "(" + scale[0] + "x, " + scale[1] + "x, " + scale[2] + "x) "
 			+ "(" + rotation[0] + "º, " + rotation[1] + "º, " + rotation[2] + "º)\n";
 		for (INode n: children) {

@@ -20,19 +20,25 @@ import nng.graph.Node;
 import com.sun.opengl.util.GLUT;
 
 
-public class Sphere extends Node {
+public class Cylinder extends Node {
 
-	int slices;
-	int stacks;
+	private double base;
+	private double height;
+	private int slices;
+	private int stacks;
 
 
-	public Sphere() {
+	public Cylinder() {
 		super();
 		slices = stacks = 10;
+		base = height = 1.0;
 	}
 	
-	public Sphere(int slices, int stacks) {
+	public Cylinder(double base, double height, int slices, int stacks) {
 		super();
+		
+		this.base = base;
+		this.height = height;
 		this.slices = slices;
 		this.stacks = stacks;
 	}
@@ -45,13 +51,13 @@ public class Sphere extends Node {
 		
 		if (!wireframe) {
 			gl.glColor4dv(DoubleBuffer.wrap(fillColor));
-			glut.glutSolidSphere(1.0f, slices, stacks);
+			glut.glutSolidCylinder(base, height, slices, stacks);
 		}
 		
 		gl.glColor4dv(DoubleBuffer.wrap(lineColor));
-		glut.glutWireSphere(1.0f, slices, stacks);
+		glut.glutWireCylinder(base, height, slices, stacks);
 	}
-
+	
 	public String getGraph(String tab) {
 		return tab + getShapeName() + "[" + getName() + "] (" + translation[0] + ", " + translation[1] + ", " + translation[2] + ") "
 			+ "(" + scale[0] + "x, " + scale[1] + "x, " + scale[2] + "x) "
@@ -59,6 +65,6 @@ public class Sphere extends Node {
 	}
 	
 	public String getShapeName() {
-		return "Sphere";
+		return "Cone";
 	}
 }

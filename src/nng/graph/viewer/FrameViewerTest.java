@@ -54,7 +54,6 @@ public class FrameViewerTest {
         	child.addNode(c);
         
         rootNode.addNode(child);
-        System.out.println(rootNode.toJava());
         
         return rootNode;
     }
