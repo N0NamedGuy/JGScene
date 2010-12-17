@@ -11,7 +11,7 @@ public class TreeModel extends Node {
 			super();
 			
 			setFillColor(0.0, 0.25, 0.0, 1.0);
-			setLineColor(0.0, 1.0, 0.0, 1.0);
+			setLineColor(0.0, 0.5, 0.0, 1.0);
 			setRotation(-90.0, 0.0, 0.0);
 			setScale(1.0,1.0,3.0);
 		}
@@ -21,6 +21,7 @@ public class TreeModel extends Node {
 		public TreeTrunk(double height) {
 			super();
 			setFillColor(0.5, 0.25, 0.1, 1.0);
+			setLineColor(1.0, 0.5, 0.2, 1.0);
 			setRotation(-90.0, 0.0, 0.0);
 			setScale(0.25,0.25,height);
 		}
