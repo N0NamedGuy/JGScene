@@ -22,8 +22,6 @@ import com.sun.opengl.util.GLUT;
 
 public class Cone extends Node {
 
-	private double base;
-	private double height;
 	private int slices;
 	private int stacks;
 
@@ -31,14 +29,11 @@ public class Cone extends Node {
 	public Cone() {
 		super();
 		slices = stacks = 10;
-		base = height = 1.0;
 	}
 	
-	public Cone(double base, double height, int slices, int stacks) {
+	public Cone(int slices, int stacks) {
 		super();
 		
-		this.base = base;
-		this.height = height;
 		this.slices = slices;
 		this.stacks = stacks;
 	}
@@ -51,11 +46,11 @@ public class Cone extends Node {
 		
 		if (!wireframe) {
 			gl.glColor4dv(DoubleBuffer.wrap(fillColor));
-			glut.glutSolidCone(base, height, slices, stacks);
+			glut.glutSolidCone(1.0, 1.0, slices, stacks);
 		}
 		
 		gl.glColor4dv(DoubleBuffer.wrap(lineColor));
-		glut.glutWireCone(base, height, slices, stacks);
+		glut.glutWireCone(1.0, 1.0, slices, stacks);
 	}
 	
 	public String getGraph(String tab) {
